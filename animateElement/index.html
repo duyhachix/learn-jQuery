@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animate</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+      integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style lang="scss">
+      * {
+        font-size: 14px;
+      }
+      .btn {
+        width: 200px;
+        height: 40px;
+        box-shadow: 3px 3px 3px black;
+        cursor: pointer;
+        margin: 0;
+      }
+      .start-btn {
+        background-color: rgb(1, 179, 10);
+      }
+      .second-btn {
+        background-color: orange;
+      }
+      .fourth-btn {
+        background-color: rgb(219, 4, 33);
+      }
+      .btn-container {
+        display: grid;
+        grid-template-columns: 300px 300px 300px 300px 1fr;
+        .btn {
+          text-align: center;
+          justify-self: center;
+        }
+      }
+      .text-container {
+        display: grid;
+        grid-template-columns: 300px 300px 300px 300px 1fr;
+        .text {
+          justify-self: center;
+        }
+      }
+      .content-box {
+        .content-message {
+          height: fit-content;
+          text-align: left;
+          line-height: 16px;
+          color: rgb(223, 9, 55);
+          background-color: #c3eef0;
+        }
+        .hide-message {
+          text-align: left;
+          line-height: 20px;
+          color: orange;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-box">
+      <div class="btn-container">
+        <button class="btn start-btn">Click me to resize text</button>
+        <button class="btn second-btn">Click me to show text</button>
+        <button class="btn third-btn">Click me to xxx</button>
+        <button class="btn fourth-btn">Click me to stop animation</button>
+      </div>
+      <div class="text-container">
+        <p class="text content-message">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quia
+          inventore rem fugit accusamus quisquam adipisci delectus, tempora praesentium,
+          eveniet itaque suscipit alias. Iste ea officia, a dolor deleniti ratione?
+        </p>
+        <p class="text hide-message">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quia
+          inventore rem fugit accusamus quisquam adipisci delectus, tempora praesentium,
+          eveniet itaque suscipit alias. Iste ea officia, a dolor deleniti ratione?
+        </p>
+        <p class="text third-message">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quia
+          inventore rem fugit accusamus quisquam adipisci delectus, tempora praesentium,
+          eveniet itaque suscipit alias. Iste ea officia, a dolor deleniti ratione?
+        </p>
+        <p class="text fourth-message">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quia
+          inventore rem fugit accusamus quisquam adipisci delectus, tempora praesentium,
+          eveniet itaque suscipit alias. Iste ea officia, a dolor deleniti ratione?
+        </p>
+      </div>
+    </div>
+    <script>
+      $('.start-btn').click(() => {
+        $('.content-message').animate(
+          {
+            width: '200px',
+            height: '300px',
+          },
+          2000
+        );
+      });
+      $('.second-btn').click(() => {
+        $('.hide-message')
+          .show()
+          .animate(
+            {
+              opacity: 1,
+              fontColor: 'blue',
+              fontSize: '30px',
+              lineHeight: '30px',
+            },
+            3000
+          )
+          .fadeOut();
+      });
+      $('.fourth-btn').click(() => {
+        $('.hide-message').stop(true, false);
+      });
+    </script>
+  </body>
+</html>
