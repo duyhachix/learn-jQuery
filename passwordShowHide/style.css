@@ -1,0 +1,16 @@
+* {
+    font-size: 1rem;
+}
+#togglePwd {
+    background-image: linear-gradient(to right, rgb(227, 247, 55), rgb(204, 0, 255));
+    width: 100px !important;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+#login-btn {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(to top, rgb(0, 49, 211), rgb(219, 219, 219));
+}
